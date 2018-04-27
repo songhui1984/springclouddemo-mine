@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: zuul
+  cloud:
+    config:
+          uri: http://localhost:6661/
+          profile: dev
+  security:
+#    basic:
+#      enabled: true
+    user:
+      name: cion
+      password: qwe123         
+
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.hostname}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://cion:qwe123@localhost:7771/eureka/
+
+zuul:
+  ignoredServices: '*'
+  routes:
+    consumer-service: 
+      path: /consumer-service/**
+      serviceId: rest-client
+      usernamepassword: ''
+      #例如 访问：http://localhost:7777/consumer-service/testFeign/papa 请求会被转发到 http://rest-client/testFeign/papa   rest-client是基于服务发现的
+    provider-service: 
+      path: /provider-service/**
+      serviceId: rest-service
+      usernamepassword: 'cion:qwe123'
+  MyPreFilter:
+    pre:
+      disable: false
+      #zuul.<SimpleClassName>.<filterType>.disable=true  禁用自定义的zuulfilter
+      

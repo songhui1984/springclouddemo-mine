@@ -1,0 +1,14 @@
+server:
+  port: 7771
+  
+spring:
+  application:
+    name: server
+  cloud:
+    config:
+      uri: http://localhost:6661/
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        service-id: config-server

@@ -1,0 +1,10 @@
+server:
+  port: 7777
+
+
+spring:
+  profiles:
+    #包含子文件，子文件名称application-{name}.yml
+    include: 
+      - zipkin
+      - logging    

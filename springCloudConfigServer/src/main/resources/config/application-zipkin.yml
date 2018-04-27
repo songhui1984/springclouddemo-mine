@@ -1,0 +1,8 @@
+spring:
+  zipkin:
+    #enabled是自定义属性，用于控制是否需要把链路日志发送到zipkin服务器
+    enabled: true
+    baseUrl: http://127.0.0.1:9412
+  sleuth:
+    sampler:
+      probability: 1

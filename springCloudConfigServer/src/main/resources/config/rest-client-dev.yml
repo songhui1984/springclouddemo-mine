@@ -1,0 +1,15 @@
+client:
+    param: testclient
+server:
+  port: 9991    
+service:
+  url: http://rest-service
+  #http://rest-service,http://127.0.0.1:8882
+
+
+spring:
+  profiles:
+    #包含子文件，子文件名称application-{name}.yml
+    include: 
+      - zipkin
+      - logging

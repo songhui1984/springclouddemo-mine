@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: zipkin-server
+  cloud:
+    config:
+      uri: http://localhost:6661/
+      profile: dev
+#      username: user
+#      password: secret
+      

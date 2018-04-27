@@ -1,0 +1,11 @@
+server.port=8883
+
+spring.cloud.config.uri=http://127.0.0.1:${config.port:8888}
+spring.cloud.config.name=cloud-server
+spring.cloud.config.profile=${config.profile:dev}
+eureka.client.serviceUrl.defaultZone=http\://localhost\:8761/eureka/,http\://zlhost\:8762/eureka/
+#service name
+spring.application.name=cloud-client
+
+#http\://localhost\:8882
+service.url=http://cloud-service

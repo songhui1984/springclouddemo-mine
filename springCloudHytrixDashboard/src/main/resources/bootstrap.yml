@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: hytrixdashboard
+  cloud:
+    config:
+          uri: http://localhost:6661/
+          profile: dev
+  security:
+#    basic:
+#      enabled: true
+    user:
+      name: cion
+      password: qwe123         
+
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.hostname}:${server.port}
+  client:
+    serviceUrl:
+      #http://localhost:8761/eureka/,http://zlhost:8762/eureka/
+      defaultZone: http://cion:qwe123@localhost:7771/eureka/
+

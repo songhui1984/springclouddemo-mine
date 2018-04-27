@@ -1,0 +1,62 @@
+spring:
+  application:
+    name: rest-client
+  cloud:
+    config:
+      uri: http://localhost:6661/
+      profile: dev
+    stream:
+      default-binder: kafka
+      kafka:
+        binder:
+          brokers: 192.168.1.128
+          defaultBrokerPort: 9092
+          zkNodes: 192.168.1.128
+          defaultZkPort: 2181
+          autoCreateTopics: false
+  security:
+#    basic:
+#      enabled: true
+    user:
+      name: cion
+      password: qwe123         
+#  rabbitmq:
+#    host: 192.168.1.128
+#    port: 9876
+#    # 9876 10911
+#    username: guest
+#    password: guest
+#    virtual-host: /
+#    publisher-confirms: true
+#    publisher-returns: true
+#    template:
+#      mandatory: true
+
+
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.hostname}:${server.port}
+  client:
+    serviceUrl:
+      #http://localhost:8761/eureka/,http://zlhost:8762/eureka/
+      defaultZone: http://cion:qwe123@localhost:7771/eureka/
+
+management:
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: hystrix.stream,refresh,bus-refresh
+      #refresh  http://localhost:9991/refresh 手动向这个地址，发一个post请求刷新配置，集成bus后  http://localhost:9991/bus-refresh 
+      #https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
+      
+feign:
+  hystrix:
+    enabled: true
+
+
+
+    
+    

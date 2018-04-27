@@ -1,0 +1,7 @@
+server.port=8881
+#https://git.oschina.net/zhou666/spring-cloud-7simple.git
+spring.cloud.config.server.git.uri=
+spring.cloud.config.server.git.searchPaths=cloud-config-repo
+#http\://localhost\:8761/eureka/,http\://zlhost\:8762/eureka/
+eureka.client.serviceUrl.defaultZone=http\://localhost\:8761/eureka/
+spring.application.name=cloud-server

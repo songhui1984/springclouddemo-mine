@@ -1,0 +1,15 @@
+server:
+  port: 6661
+spring:
+  application:
+    name: config-server
+  profiles: 
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: classpath:/config
+#        git:
+#          uri: null#https://git.oschina.net/gongxusheng/spring-config-demo.git
+#          searchPaths: my-sample-config
